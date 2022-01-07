@@ -24,6 +24,8 @@ import {PlayTheOrder} from "../../../common/contants";
 import {getSizeImg,getPlaySong} from "../../../utils/data-format";
 import { NavLink } from "react-router-dom";
 
+import PlayPanel from "../app-play-panel/index";
+
 
 
 function MyPlayerBar() {
@@ -32,6 +34,7 @@ function MyPlayerBar() {
   const [progress,setProgress] = useState(0);
   const [isChange,setIsChange] = useState(false);
   const [isPlaying,setIsPlaying] = useState(false);
+  const [isShowSongList,setIsShowSongList] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -219,7 +222,7 @@ function MyPlayerBar() {
               <div className="right sprite_playbar">
                 <button className="sprite_playbar btn volume"></button>
                 <button className="sprite_playbar btn loop" onClick={(e) => changeSequence()}></button>
-                <button className="sprite_playbar btn playlist">{playList.length}</button>
+                <button className="sprite_playbar btn playlist" onClick={e => setIsShowSongList(!isShowSongList)}>{playList.length}</button>
               </div>
         </Operator>
       </div>
@@ -233,6 +236,7 @@ function MyPlayerBar() {
       <audio  ref={audioRef} 
               onTimeUpdate={(e) => timeUpdate(e)} 
               onEnded={(e) => handleMusicEnded(e)}/>
+      {isShowSongList && <PlayPanel/>}
     </PlayerBarWrapper>
   );
 }
