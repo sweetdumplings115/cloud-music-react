@@ -6,7 +6,8 @@ import {
     CHANGG_SONG_RANKING_ELECTRONIC_MUSIC,
     CHANGG_SONG_RANKING_SOAR,
     CHANGG_SONG_RANKING_VIP,
-    CHANG_HOT_HOST
+    CHANG_HOT_HOST,
+    CHANG_SETTLE_SINGERS,
 }from "./constans.js"; 
 
 import {
@@ -15,6 +16,7 @@ import {
     getNewSong,
     getSongRanking,
     getHotHost,
+    getSettleSinger,
 } from "@/services/recommend";
 
 import {
@@ -124,6 +126,19 @@ export const getHotHostAction = (limit) => {
             // console.log(res);
             const myRes = (res && res.data) || {list:{}};
             dispatch(changeHotHostAction(myRes.list));
+        })
+    }
+}
+
+const changeSettleSingerAction = (res) => ({
+    type:CHANG_SETTLE_SINGERS,
+    settleSinger:res
+})
+
+export const getSettleSingerAction = (limit) => {
+    return dispatch => {
+        getSettleSinger(limit).then(res => {
+            dispatch(changeSettleSingerAction(res.artists))
         })
     }
 }

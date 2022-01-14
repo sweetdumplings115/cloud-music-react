@@ -65,3 +65,15 @@ export function getHotHost(limit){
         })
     )
 }
+
+
+export function getSettleSinger(limit){
+    return(
+        request({
+            url:"/artist/list",
+            params:{
+                limit
+            }
+        })
+    )
+}

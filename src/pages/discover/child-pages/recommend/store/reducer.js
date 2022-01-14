@@ -7,6 +7,7 @@ import {
     CHANGG_SONG_RANKING_ELECTRONIC_MUSIC,
     CHANGG_SONG_RANKING_VIP,
     CHANG_HOT_HOST,
+    CHANG_SETTLE_SINGERS,
 }from "./constans.js";
 
 import {Map} from "immutable";//优化{...state,banner:action.banner}及浅拷贝过于浪费空间的问题
@@ -24,7 +25,8 @@ const initState = Map({
     songRankingElectronic:{},
     songRankingVIP:{},
 
-    hothosts:[]
+    hothosts:[],
+    settleSinger:[],
 });
 
 function reducer(state = initState,action){
@@ -46,6 +48,8 @@ function reducer(state = initState,action){
             return state.set("songRankingVIP",action.songRankingVIP)
         case CHANG_HOT_HOST:
             return state.set("hothosts",action.hothosts)
+        case CHANG_SETTLE_SINGERS:
+            return state.set("settleSinger",action.settleSinger)
         default:
             return state
     }

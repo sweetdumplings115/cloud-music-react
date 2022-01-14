@@ -13,9 +13,13 @@ export const SONG_RANKING_ACG_ID = 71385702;//ACG
 export const SONG_RANKING_ELECTRONIC_MUSIC_ID = 10520166;//国电
 
 export const HOT_HOST_LIMIT = 5;
+export const SETTLE_SINGER_LIMIT = 5;
 
 export const HOT_HOST_URL = "https://music.163.com/#/user/home";//热门主播
+export const SETTLE_SINGER_URL = "https://music.163.com/#/artist";//歌手歌曲列表
 export const MUSIC_OF_PEOPLE = "https://music.163.com/st/musician";//成为网易云音乐人
+
+
 
 export const PlayTheOrder = {
     order:0,
