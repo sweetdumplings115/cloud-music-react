@@ -20,3 +20,30 @@ export function getLyric(id) {
       }
     })
   }
+
+export function  getIncludeThisSongList(id) {
+  return request({
+    url:"/simi/playlist",
+    params:{
+      id
+    }
+  })
+}
+
+export function getSimilarSongs(id) {
+  return request({
+    url:"/simi/song",
+    params:{
+      id
+    }
+  })
+}
+
+export function getcomments(id) {
+  return request({
+    url:"/comment/music",
+    params:{
+      id
+    }
+  })
+}

@@ -5,6 +5,9 @@ import {
    CHANGE_SONG_LIST,
    CHANGE_LYRIC_List,
    CHANGE_CURRENT_LYRIC_INDEX,
+   CHANGE_Similar_Songs,
+   CHANGE_Include_This_Song_List,
+   CHANGE_comments,
 }from "./constans.js"; 
 
 import {
@@ -14,6 +17,9 @@ import {
 import {
     getSongDetail,
     getLyric,
+    getIncludeThisSongList,
+    getSimilarSongs,
+    getcomments,
 } from "../../../services/player";
 
 import {
@@ -155,6 +161,51 @@ export const changeCurrentLyricIndexACction = (currentLyricIndex) => ({
     type:CHANGE_CURRENT_LYRIC_INDEX,
     currentLyricIndex
 })
+
+
+
+const changeSimilarSongsAction = (res) => ({
+    type:CHANGE_Similar_Songs,
+    similarSongs:res
+})
+
+export const getSimilarSongsAction = (id) => {
+    return dispatch => {
+        getSimilarSongs(id).then(res => {
+            // console.log(res.songs);
+            dispatch(changeSimilarSongsAction(res.songs));
+        })
+    }
+}
+
+
+const changeIncludeThisSongListAction = (res) => ({
+    type:CHANGE_Include_This_Song_List,
+    includeThisSongList:res
+})
+
+export const getIncludeThisSongListAction = (id) => {
+    return dispatch => {
+       getIncludeThisSongList(id).then(res => {
+        //    console.log(res.playlists);
+           dispatch(changeIncludeThisSongListAction(res.playlists))
+       })
+    }
+}
+
+
+const changecommentsAction = (res) => ({
+    type:CHANGE_comments,
+    comments:res
+})
+
+export const getcommentsAction = (id) => {
+    return dispatch => {
+       getcomments(id).then(res => { 
+            dispatch(changecommentsAction(res));
+       })
+    }
+}
 
 
 

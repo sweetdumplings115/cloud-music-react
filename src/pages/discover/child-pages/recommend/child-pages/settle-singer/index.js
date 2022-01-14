@@ -32,7 +32,7 @@ function MyPageDiscoverSettleSinger() {
            settleSinger.map(item => {
              return (
               //  <li key={item.id}>{item.name}</li>
-              <SongsThreeCover name={item.name} picUrl={item.picUrl} size={62} id={item.id}/>
+              <SongsThreeCover name={item.name} picUrl={item.picUrl} size={62} id={item.id} key={item.id}/>
              )
            })
          }

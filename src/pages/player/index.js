@@ -1,18 +1,25 @@
 import React, { memo } from "react";
 
 import { PlayerLeft, PlayerRight, PlayerWrapper } from "./style";
+
+import Comments from "./child-page/comments";
+import Download from "./child-page/download";
+import Playlist from "./child-page/playlist";
+import SimilarSongs from "./child-page/similar-songs";
+import SongInfo from "./child-page/song-info";
+
 function Player() {
   return (
     <PlayerWrapper>
       <div className="wrap-v2 content">
         <PlayerLeft>
-        <h2>歌词显示</h2>
-        <h2>评论</h2>
+            <SongInfo/>
+            <Comments/>
         </PlayerLeft>
         <PlayerRight>
-            <h2>歌单</h2>
-            <h2>相似歌曲</h2>
-            <h2>网易云下载</h2>
+            <Playlist/>
+            <SimilarSongs/>
+            <Download/>
         </PlayerRight>
       </div>
     </PlayerWrapper>

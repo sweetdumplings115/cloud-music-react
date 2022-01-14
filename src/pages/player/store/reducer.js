@@ -5,6 +5,9 @@ import {
     CHANGE_SEQUENCE,
     CHANGE_LYRIC_List,
     CHANGE_CURRENT_LYRIC_INDEX,
+    CHANGE_Similar_Songs,
+    CHANGE_Include_This_Song_List,
+    CHANGE_comments,
 }from "./constans.js";
 
 import {Map} from "immutable";
@@ -18,6 +21,10 @@ const initState = Map({
    sequence:PlayTheOrder.order,//0 :顺序,1:随机，2：单曲循环
    lyricList:[],
    currentLyricIndex:0,
+   similarSongs:[],
+   includeThisSongList:[],
+   comments:{},
+
 });
 
 
@@ -35,6 +42,12 @@ function reducer(state = initState,action){
             return state.set("lyricList",action.lyricList)
         case CHANGE_CURRENT_LYRIC_INDEX:
             return state.set("currentLyricIndex",action.currentLyricIndex)
+        case CHANGE_Similar_Songs:
+            return state.set("similarSongs",action.similarSongs)
+        case CHANGE_Include_This_Song_List:
+            return state.set("includeThisSongList",action.includeThisSongList)
+        case CHANGE_comments:
+            return state.set("comments",action.comments)
         default:
             return state
     }

@@ -87,6 +87,10 @@ body, html, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, header, menu, sectio
   .sprite_icon3 {
     background: url(../img/sprite_icon3.png) no-repeat 0 9999px;
   }
+
+  .sprite_icon4 {
+    background: url(../img/sprite_icon4.png) no-repeat 0 9999px;
+  }
   
   .sprite_button {
     background: url(../img/sprite_button.png) no-repeat 0 9999px;
