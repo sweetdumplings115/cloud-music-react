@@ -15,3 +15,6 @@ export const CHANGE_Similar_Songs = "CHANGE_Similar_Songs";
 export const CHANGE_Include_This_Song_List = "CHANGE_Include_This_Song_List";
 
 export const CHANGE_comments = "CHANGE_comments";
+
+export const CHANGE_Search = "CHANGE_Search";
+export const CHANGE_Search_Suggest = "CHANGE_Search_Suggest";

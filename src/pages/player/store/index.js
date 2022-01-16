@@ -7,6 +7,8 @@ import {
     getIncludeThisSongListAction,
     getSimilarSongsAction,
     getcommentsAction,
+    getSearchAction,
+    getSearchSuggestAction,
 } from "./actionCreators";
 
 
@@ -19,4 +21,6 @@ export {
     getIncludeThisSongListAction,
     getSimilarSongsAction,
     getcommentsAction,
+    getSearchAction,
+    getSearchSuggestAction,
 };

@@ -17,7 +17,8 @@ export const SETTLE_SINGER_LIMIT = 5;
 
 export const HOT_HOST_URL = "https://music.163.com/#/user/home";//热门主播
 export const SETTLE_SINGER_URL = "https://music.163.com/#/artist";//歌手歌曲列表
-export const SIMILAR_PLAYLIST_URL = "https://music.163.com/#/playlist"//相似歌单
+export const SIMILAR_PLAYLIST_URL = "https://music.163.com/#/playlist";//相似歌单
+export const USER_SPACE_URL = "https://music.163.com/#/user/home";//用户空间
 export const MUSIC_OF_PEOPLE = "https://music.163.com/st/musician";//成为网易云音乐人
 
 

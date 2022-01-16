@@ -8,6 +8,8 @@ import {
    CHANGE_Similar_Songs,
    CHANGE_Include_This_Song_List,
    CHANGE_comments,
+   CHANGE_Search,
+   CHANGE_Search_Suggest,
 }from "./constans.js"; 
 
 import {
@@ -20,6 +22,8 @@ import {
     getIncludeThisSongList,
     getSimilarSongs,
     getcomments,
+    getSearch,
+    getSearchSuggest,
 } from "../../../services/player";
 
 import {
@@ -203,6 +207,33 @@ export const getcommentsAction = (id) => {
     return dispatch => {
        getcomments(id).then(res => { 
             dispatch(changecommentsAction(res));
+       })
+    }
+}
+
+
+const changeSearchAction = (res) => ({
+    type:CHANGE_Search,
+    searchResult:res
+})
+
+export const getSearchAction = (keyword) => {
+    return dispatch => {
+       getSearch(keyword).then(res => { 
+            dispatch(changeSearchAction(res));
+       })
+    }
+}
+
+const changeSearchSuggestAction = (res) => ({
+    type:CHANGE_Search_Suggest,
+    searchSuggest:res
+})
+
+export const getSearchSuggestAction = (keyword) => {
+    return dispatch => {
+       getSearchSuggest(keyword).then(res => {
+           dispatch(changeSearchSuggestAction(res))
        })
     }
 }

@@ -47,3 +47,21 @@ export function getcomments(id) {
     }
   })
 }
+
+export function getSearchSuggest(keywords){
+  return request({
+    url:"/search/suggest",
+    params:{
+      keywords
+    }
+  })
+}
+
+export function  getSearch(keywords){
+  return request({
+    url:"/search",
+    params:{
+      keywords
+    }
+  })
+}

@@ -8,6 +8,8 @@ import {
     CHANGE_Similar_Songs,
     CHANGE_Include_This_Song_List,
     CHANGE_comments,
+    CHANGE_Search,
+    CHANGE_Search_Suggest,
 }from "./constans.js";
 
 import {Map} from "immutable";
@@ -24,6 +26,9 @@ const initState = Map({
    similarSongs:[],
    includeThisSongList:[],
    comments:{},
+   searchResult:{},
+   searchSuggest:{},
+
 
 });
 
@@ -48,6 +53,10 @@ function reducer(state = initState,action){
             return state.set("includeThisSongList",action.includeThisSongList)
         case CHANGE_comments:
             return state.set("comments",action.comments)
+        case CHANGE_Search:
+            return state.set("searchResult",action.searchResult)
+        case CHANGE_Search_Suggest:
+            return state.set("searchSuggest",action.searchSuggest)
         default:
             return state
     }

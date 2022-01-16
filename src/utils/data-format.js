@@ -14,7 +14,7 @@ export function getNum(num){
 
 
 export function getSizeImg(Url,size){
-    return `${Url}?param=${size}x${size}`
+    return `${Url}?param=${size}y${size}`
 }
 
 export function getJoiningTogether(Url,parameter,value){
@@ -59,4 +59,13 @@ export function formatDate(time, fmt) {
 
   export function getPlaySong(id){
       return `http://music.163.com/song/media/outer/url?id=${id}.mp3`
+  }
+
+  const parseExp = /(\d{4})-(\d{1,2})-(\d{1,2})/;
+  export function getChineseFormatTime(time){
+    const result = parseExp.exec(time);
+    if(!result){
+      return time;
+    }
+    return result[1]+"年"+result[2]+"月"+result[3]+"日";
   }
