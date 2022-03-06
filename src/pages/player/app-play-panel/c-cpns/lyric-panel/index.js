@@ -12,8 +12,8 @@ export default memo(function HYLyricPanel() {
     currentLyricIndex: state.getIn(["player", "currentLyricIndex"])
   }), shallowEqual);
 
-  console.log(currentLyricIndex);
-  console.log(currentLyrics);
+  // console.log(currentLyricIndex);
+  // console.log(currentLyrics);
   // other hooks
   const panelRef = useRef();
   useEffect(() => {

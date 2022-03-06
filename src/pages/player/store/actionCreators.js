@@ -10,6 +10,8 @@ import {
    CHANGE_comments,
    CHANGE_Search,
    CHANGE_Search_Suggest,
+   CHANGE_Details_Page_Song,
+   CHANGE_Details_Page_Lyric_List,
 }from "./constans.js"; 
 
 import {
@@ -56,7 +58,7 @@ export const getSongDetailAction = (ids) => {
             dispatch(getLyricAction(ids));//请求歌词
         }else{//如果不在，请求对应歌曲
                 getSongDetail(ids).then(res => {
-                   song = res.songs && res.songs[0];
+                   song = res && res.songs && res.songs[0];
                     if(!song) return;
 
                     const newPlayList = [...palyList];
@@ -76,8 +78,8 @@ export const getLyricAction = (id) => {
     return dispatch => {
         getLyric(id).then(res => {
             const lyric = res.lrc.lyric;
-            const lyricList = parseLyric(lyric);
-            // console.log(lyricList);
+            const translationlyric = res.tlyric.lyric;
+            const lyricList = parseLyric(lyric,translationlyric);
             dispatch(changeLyricListAction(lyricList));
         })
     }
@@ -154,8 +156,6 @@ export const changePlaySongAction = (tag) => {
         const currentSong = playList[currentSongIndex];
         dispatch(changeCurrentSongIndexAction(currentSongIndex));
         dispatch(changeCurrentSongAction(currentSong));
-
-
         //请求歌词
         dispatch(getLyricAction(currentSong.id))
     }
@@ -233,6 +233,7 @@ const changeSearchSuggestAction = (res) => ({
 export const getSearchSuggestAction = (keyword) => {
     return dispatch => {
        getSearchSuggest(keyword).then(res => {
+           console.log("--------------",keyword);
            dispatch(changeSearchSuggestAction(res))
        })
     }
@@ -241,4 +242,37 @@ export const getSearchSuggestAction = (keyword) => {
 
 
 
+const changeDetailsPageSong = (res) => ({
+    type:CHANGE_Details_Page_Song,
+    detailsPageSong:res,
+})
+
+
+
+export const getDetailsPageSong = (id) => {
+    return dispatch =>  {
+        getSongDetail(id).then(res => {
+            dispatch(changeDetailsPageSong(res && res.songs[0]));
+        })
+    }
+}
+
+
+const changeDetailsPagelyricList = (res) => ({
+    type:CHANGE_Details_Page_Lyric_List,
+    detailsPagelyricList:res
+})
+
+
+
+export const getDetailsPagelyricList = (id) => {
+    return dispatch =>  {
+        getLyric(id).then(res => {
+            const lyric = res.lrc.lyric;
+            const translationlyric = res.tlyric.lyric;
+            const lyricList = parseLyric(lyric,translationlyric);
+            dispatch(changeDetailsPagelyricList(lyricList));
+        })
+    }
+}
 

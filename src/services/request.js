@@ -13,7 +13,7 @@ instace.interceptors.request.use(config => {
     console.log("请求被拦截")
     return config;
   }, err => {
-
+    console.error(err);
   })
 
 instace.interceptors.response.use(res => {

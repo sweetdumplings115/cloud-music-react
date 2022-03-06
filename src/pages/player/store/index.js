@@ -9,6 +9,8 @@ import {
     getcommentsAction,
     getSearchAction,
     getSearchSuggestAction,
+    getDetailsPageSong,
+    getDetailsPagelyricList,
 } from "./actionCreators";
 
 
@@ -23,4 +25,6 @@ export {
     getcommentsAction,
     getSearchAction,
     getSearchSuggestAction,
+    getDetailsPageSong,
+    getDetailsPagelyricList,
 };

@@ -44,8 +44,8 @@ function MyPageDiscoverBanner() {
             {
                 banner.map((item) => {
                     return(
-                        <div className="banner-item" key={item.imageUrl}>
-                            <img className="image" src={item.imageUrl} alt={item.typeTitle} />
+                        <div className="banner-item" key={item.imageUrl + "?param=730y270&quality=89"}>
+                            <img className="image" src={item.imageUrl + "?param=730y270&quality=89"} alt={item.typeTitle} />
                         </div>
                     )
                 })

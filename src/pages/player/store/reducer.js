@@ -10,6 +10,8 @@ import {
     CHANGE_comments,
     CHANGE_Search,
     CHANGE_Search_Suggest,
+    CHANGE_Details_Page_Song,
+    CHANGE_Details_Page_Lyric_List,
 }from "./constans.js";
 
 import {Map} from "immutable";
@@ -28,7 +30,8 @@ const initState = Map({
    comments:{},
    searchResult:{},
    searchSuggest:{},
-
+   detailsPageSong:{},
+   detailsPagelyricList:[],
 
 });
 
@@ -57,6 +60,10 @@ function reducer(state = initState,action){
             return state.set("searchResult",action.searchResult)
         case CHANGE_Search_Suggest:
             return state.set("searchSuggest",action.searchSuggest)
+        case CHANGE_Details_Page_Song:
+            return state.set("detailsPageSong",action.detailsPageSong)
+        case CHANGE_Details_Page_Lyric_List:
+            return state.set("detailsPagelyricList",action.detailsPagelyricList)
         default:
             return state
     }

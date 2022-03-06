@@ -16,13 +16,18 @@ function Block(props) {
                   {
                    
                     info.map(item => {
-                      return  <li className="li" key={item.id}><NavLink to="/discover/player" style={{textDecoration:"none"}}>{item.name}&nbsp;&nbsp;{item.artists[0].name} </NavLink></li>
+                      return  <li className="li" key={item.id}><NavLink to={merge(item.id)} style={{textDecoration:"none"}}>{item.name}&nbsp;&nbsp;{item.artists[0].name} </NavLink></li>
                     })
                   }
                 </ul>
               </div>
         </BlockWrapper>
     )
+
+
+    function merge(id){
+      return "/discover/player?songID="+id;
+    }
 }
 
 export default memo(Block);

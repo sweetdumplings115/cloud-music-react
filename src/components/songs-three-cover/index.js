@@ -21,7 +21,7 @@ function SongsThreeCover(props) {
         <img src={getSizeImg(picUrl,size)} alt="" />
       </a>
       <div className="stw-div">
-        <h2>{name}</h2>
+        <h2 className="h2">{name}</h2>
         <p>音乐人</p>
       </div>
     </SongsThreeCoverWrapper>

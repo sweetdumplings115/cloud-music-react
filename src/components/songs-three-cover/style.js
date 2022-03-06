@@ -8,7 +8,7 @@ export const SongsThreeCoverWrapper = styled.div`
     background-color:#F4F4F4;
   .stw-div {
      display: block;
-     margin-left: 10px;
+     margin-left: 15px;
     p {
       margin-left:10px;
       float: left;
@@ -16,6 +16,13 @@ export const SongsThreeCoverWrapper = styled.div`
       line-height: 21px;
       display: block;
       margin-left: auto;
+      margin-top:5px;
+    }
+
+    .h2 {
+      font-weight: bold;
+      font-size: 14px;
+      margin-top: 10px;
     }
   }
 

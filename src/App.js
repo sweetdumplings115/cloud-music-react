@@ -4,7 +4,7 @@ import { HashRouter } from "react-router-dom";
 
 import store from "./store";
 
-import {Provider} from "react-redux"
+import {Provider} from "react-redux";
 
 import MyRoutes from "./components/app-center-router";
 import PlayerBar from "./pages/player/player-bar";

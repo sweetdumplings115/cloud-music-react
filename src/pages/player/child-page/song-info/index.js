@@ -4,20 +4,27 @@ import { SongInfoWrapper } from "./style";
 
 import { getSizeImg } from "@/utils/data-format";
 import SongOperationBar from '@/components/song-operation-bar';
-function SongInfo() {
+
+function SongInfo(props) {
     const [isSpread, setIsSpread] = useState(false);
 
+    const { detailsPageSongId } = props;//进入详情页歌曲的id
 
-    const { songName, singerName, picUrl,currentLyrics,albumName,comments} = useSelector((state) => ({
-      songName: state.getIn(["player", "currentSong", "name"]),
-      singerName: state.getIn(["player", "currentSong", "ar"]),
-      picUrl: state.getIn(["player", "currentSong", "al", "picUrl"]),
-      albumName: state.getIn(["player", "currentSong", "al", "name"]),
-      currentLyrics: state.getIn(["player", "lyricList"]),
+    // console.log("歌曲",detailsPageSongId);
+
+
+    const { songName, singerName, picUrl,currentLyrics,albumName,comments,song} = useSelector((state) => ({
+      song:detailsPageSongId ? state.getIn(["player", "detailsPageSong"]) : state.getIn(["player", "currentSong"]),
+      songName:detailsPageSongId ? state.getIn(["player", "detailsPageSong", "name"]) : state.getIn(["player", "currentSong", "name"]),
+      singerName:detailsPageSongId ? state.getIn(["player", "detailsPageSong", "ar"]): state.getIn(["player", "currentSong", "ar"]),
+      picUrl:detailsPageSongId ? state.getIn(["player", "detailsPageSong", "al", "picUrl"]):  state.getIn(["player", "currentSong", "al", "picUrl"]),
+      albumName:detailsPageSongId ? state.getIn(["player", "detailsPageSong", "al", "name"]): state.getIn(["player", "currentSong", "al", "name"]),
+      currentLyrics:detailsPageSongId ? state.getIn(["player", "detailsPagelyricList"]) : state.getIn(["player", "lyricList"]),
       comments:state.getIn(["player","comments"]),
     }),shallowEqual);
 
   const totalLyricCount = isSpread ? currentLyrics.length : 13;
+
 
   return (
     <SongInfoWrapper isSpread={isSpread}>
@@ -42,7 +49,7 @@ function SongInfo() {
         <div className="singer">
           <span className="label">歌手：</span>
           {
-              singerName.map((item) => {
+             singerName &&   singerName.map((item) => {
                   return(<a href="/#" className="name" key={item.id}>{item.name}</a>)
               })
           }
@@ -56,7 +63,9 @@ function SongInfo() {
         <SongOperationBar favorTitle="收藏"
                             shareTitle="分享"
                             downloadTitle="下载"
-                            commentTitle={comments.total}/>
+                            commentTitle={comments.total}
+                            song={song}
+                            />
 
         <div className="lyric">
           <div className="lyric-info">

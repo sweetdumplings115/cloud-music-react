@@ -18,3 +18,7 @@ export const CHANGE_comments = "CHANGE_comments";
 
 export const CHANGE_Search = "CHANGE_Search";
 export const CHANGE_Search_Suggest = "CHANGE_Search_Suggest";
+
+export const CHANGE_Details_Page_Song = "CHANGE_details_Page_Song";
+
+export const CHANGE_Details_Page_Lyric_List = "CHANGE_details_Page_Lyric_List";

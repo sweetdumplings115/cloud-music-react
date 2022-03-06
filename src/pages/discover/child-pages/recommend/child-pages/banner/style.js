@@ -121,7 +121,8 @@ export const BannerLeft = styled.div`
     overflow: hidden;
     height: 270px;
     .image {
-      width: 100%;
+      width: 730px;
+      height:270px;
     }
   }
 `

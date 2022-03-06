@@ -32,6 +32,8 @@ export const OperationBarWrapper = styled.div`
       }
     }
 
+    
+
     .add-icon {
       display: inline-block;
       width: 31px;

@@ -2,32 +2,53 @@ import React, { memo } from 'react';
 
 import { OperationBarWrapper } from './style';
 
-export default memo(function HYSongOperationBar(props) {
-  const { favorTitle, shareTitle, downloadTitle, commentTitle } = props;
+import {getSongDetailAction,addSongListAction} from "../../pages/player/store/index";
+import { useDispatch } from 'react-redux';
+
+export default memo(function SongOperationBar(props) {
+  const { favorTitle, shareTitle, downloadTitle, commentTitle,song} = props;
+
+  const dispatch = useDispatch();
+
+  console.log("song",song);
+
+  const playMusic = (song) => {
+    dispatch(getSongDetailAction(song.id));
+  }
+
+  const addMusicTOPlayList = (song) => {
+    dispatch(addSongListAction(song));
+  }
 
   return (
     <OperationBarWrapper>
+
       <span className="play">
-        <a href="/abc" className="play-icon sprite_button">
+
+        <div  className="play-icon sprite_button" onClick={() => playMusic(song)}>
           <span className="play sprite_button">
             <i className="sprite_button"></i>
             <span>播放</span>
           </span>
-        </a>
-        <a href="/abc" className="add-icon sprite_button">+</a>
+        </div>
+
+        <div  className="add-icon sprite_button" onClick={() => addMusicTOPlayList(song)}>+</div>
       </span>
-      <a href="/abc" className="item sprite_button">
+
+      <div  className="item sprite_button">
         <i className="icon favor-icon sprite_button">{favorTitle}</i>
-      </a>
-      <a href="/abc" className="item sprite_button">
+      </div>
+
+
+      <div  className="item sprite_button">
         <i className="icon share-icon sprite_button">{shareTitle}</i>
-      </a>
-      <a href="/abc" className="item sprite_button">
+      </div>
+      <div  className="item sprite_button">
         <i className="icon download-icon sprite_button">{downloadTitle}</i>
-      </a>
-      <a href="/abc" className="item sprite_button">
+      </div>
+      <div  className="item sprite_button">
         <i className="icon comment-icon sprite_button">{commentTitle}</i>
-      </a>
+      </div>
     </OperationBarWrapper>
   )
 })
