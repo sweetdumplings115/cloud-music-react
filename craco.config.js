@@ -3,7 +3,7 @@ const path = require('path');
 const resolve = dir => path.resolve(__dirname , dir);
 const CompressionWebpackPlugin = require('compression-webpack-plugin');//打包build生成gizp压缩文件
 const webpack  = require('webpack')//
-// const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");//分析
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");//分析
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const SimpleProgressWebpackPlugin = require( 'simple-progress-webpack-plugin' );
 
@@ -16,7 +16,7 @@ module.exports = {
     },
     plugins: [
       //打包分析
-     // new BundleAnalyzerPlugin(),
+      //  new BundleAnalyzerPlugin(),
       // 打压缩包
       new CompressionWebpackPlugin({
           algorithm: 'gzip',
@@ -41,7 +41,13 @@ module.exports = {
     }),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new SimpleProgressWebpackPlugin()
-   ]
+   ],
+   babel: {
+    plugins: [
+        ['import', { libraryName: 'antd', libraryDirectory: 'es', style: 'css' }],
+        ['@babel/plugin-proposal-decorators', { legacy: true }]
+    ]
+   },
   }
 }
 // 用craco进行别名配置，craco可以在不暴露backpack的配置修改项目配置即运行package.jsonde脚本"eject": "react-scripts eject"

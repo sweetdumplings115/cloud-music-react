@@ -22,7 +22,7 @@ import {
   getSearchSuggestAction,
 } from "../../pages/player/store/index";
 import { useSelector } from "react-redux";
-import { debounce } from "lodash";//防抖
+import  debounce  from "lodash/debounce";//防抖
 import { useCallback } from "react";
 
 function MyAppHeader() {
